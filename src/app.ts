@@ -3,6 +3,9 @@ import express from 'express';
 import type {Express, Request, Response} from 'express';
 import cors from 'cors';
 import { createNote } from "./createNote";
+import { getAllNotes } from "./getAllNotes";
+import { json } from "stream/consumers";
+
 
 const app: Express = express();
 
@@ -18,19 +21,11 @@ app.get("/", (req: Request, res: Response) => {
 
 const router = express.Router();
 
-router.get("/notes", (req: Request, res: Response) => {
-    res.status(200).json([]);
-})
-router.get("/notes/:id", (req: Request, res: Response) => {
-    res.status(200).json([]);
-})
+
 router.post("/notes", createNote);
-router.put("/notes/:id", (req: Request, res: Response) => {
-    res.status(200).json([]);
-})
-router.delete("/notes/:id", (req: Request, res: Response) => {
-    res.status(200).json([]);
-})
+
+router.get("/notes", getAllNotes);
+
 
 
 // adding router to express app
