@@ -2,6 +2,7 @@ import http from "http";
 import express from 'express';
 import type {Express, Request, Response} from 'express';
 import cors from 'cors';
+import { createNote } from "./createNote";
 
 const app: Express = express();
 
@@ -13,23 +14,38 @@ app.get("/", (req: Request, res: Response) => {
     res.send("Hello world from Express");
 });
 
+// class
+type Note = {
+    id: string;
+    title: string;
+    content: string;
+    createdAt: number;
+    updatedAt: number;
+};
+
+// Database Connection
+let notes = [];
+
+const now = Date.now;
+
+
 // ROUTES
 
 const router = express.Router();
 
-router.get("/tasks", (req: Request, res: Response) => {
+router.get("/notes", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
-router.get("/tasks/:id", (req: Request, res: Response) => {
+router.get("/notes/:id", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
-router.post("/tasks", (req: Request, res: Response) => {
+router.post("/notes", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
-router.put("/tasks/:id", (req: Request, res: Response) => {
+router.put("/notes/:id", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
-router.delete("/tasks/:id", (req: Request, res: Response) => {
+router.delete("/notes/:id", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
 
