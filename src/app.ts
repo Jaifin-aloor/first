@@ -14,21 +14,6 @@ app.get("/", (req: Request, res: Response) => {
     res.send("Hello world from Express");
 });
 
-// class
-type Note = {
-    id: string;
-    title: string;
-    content: string;
-    createdAt: number;
-    updatedAt: number;
-};
-
-// Database Connection
-let notes = [];
-
-const now = Date.now;
-
-
 // ROUTES
 
 const router = express.Router();
@@ -39,9 +24,7 @@ router.get("/notes", (req: Request, res: Response) => {
 router.get("/notes/:id", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
-router.post("/notes", (req: Request, res: Response) => {
-    res.status(200).json([]);
-})
+router.post("/notes", createNote);
 router.put("/notes/:id", (req: Request, res: Response) => {
     res.status(200).json([]);
 })
