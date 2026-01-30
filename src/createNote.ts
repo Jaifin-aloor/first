@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { randomUUID } from "crypto";
-import { notes, type Note } from "./noteStore"
+import { notes, Note } from "./noteStore"
 
 export const createNote = (req: Request, res: Response) => {
     const {title, content} = req.body;

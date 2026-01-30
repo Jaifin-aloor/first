@@ -4,6 +4,7 @@ import type {Express, Request, Response} from 'express';
 import cors from 'cors';
 import { createNote } from "./createNote";
 import { getAllNotes } from "./getAllNotes";
+import { getSingleNote } from "./getSingleNote";
 import { json } from "stream/consumers";
 
 
@@ -25,6 +26,8 @@ const router = express.Router();
 router.post("/notes", createNote);
 
 router.get("/notes", getAllNotes);
+
+router.get("/notes/:id", getSingleNote)
 
 
 
