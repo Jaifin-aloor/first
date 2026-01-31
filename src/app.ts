@@ -5,6 +5,8 @@ import cors from 'cors';
 import { createNote } from "./createNote";
 import { getAllNotes } from "./getAllNotes";
 import { getSingleNote } from "./getSingleNote";
+import { updateNote } from "./updateNote";
+import { deleteNote } from "./deleteNote";
 import { json } from "stream/consumers";
 
 
@@ -28,6 +30,10 @@ router.post("/notes", createNote);
 router.get("/notes", getAllNotes);
 
 router.get("/notes/:id", getSingleNote)
+
+router.put("/notes/:id", updateNote)
+
+router.delete("/notes/:id", deleteNote)
 
 
 

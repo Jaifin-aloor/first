@@ -5,6 +5,10 @@ import { notes, Note } from "./noteStore"
 export const createNote = (req: Request, res: Response) => {
     const {title, content} = req.body;
 
+    if (typeof title!=="string" || typeof content!=="string") {
+        return res.status(400).json({error: "title and content is required."})
+    }
+
     const now = Date.now();
 
     const note: Note = {
